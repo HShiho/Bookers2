@@ -1,2 +1,29 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<h2>Book detail</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Opinion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><!--ユーザーインフォにリンクさせる（まだやってない）-->
+      <td>
+        <a href="">
+        <!--投稿ユーザー画像-->
+        <%= image_tag @book.user.get_image %><br>
+        <%= @book.user.name %>
+        </a>
+      </td>
+      <td>
+        <%= @book.title %>
+      </td>
+      <!--opinion-->
+      <td>
+        <%= @book.body %>
+      </td>
+    </tr>
+  </tbody>
+</table>
