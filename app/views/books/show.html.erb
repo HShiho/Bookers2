@@ -9,13 +9,14 @@
     </tr>
   </thead>
   <tbody>
-    <tr><!--ユーザーインフォにリンクさせる（まだやってない）-->
+    <tr>
+      <!--ユーザーインフォにリンクさせる(まだやってない-->
       <td>
-        <a href="">
+        <%= link_to about_path do %>
         <!--投稿ユーザー画像-->
         <%= image_tag @book.user.get_image %><br>
         <%= @book.user.name %>
-        </a>
+        <% end %>
       </td>
       <td>
         <%= @book.title %>
