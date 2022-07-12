@@ -1,30 +1,41 @@
-<h2>Book detail</h2>
+<p id ="notice">notice</p>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Title</th>
-      <th>Opinion</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <!--ユーザーインフォにリンクさせる(まだやってない-->
-      <td>
-        <%= link_to about_path do %>
-        <!--投稿ユーザー画像-->
-        <%= image_tag @book.user.get_image %><br>
-        <%= @book.user.name %>
-        <% end %>
-      </td>
-      <td>
-        <%= @book.title %>
-      </td>
-      <!--opinion-->
-      <td>
-        <%= @book.body %>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render partial: 'layouts/sidebar',locals: { user: @user,book_new: @book_new } %>
+    </div>
+
+    <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <!--投稿ユーザー画像-->
+              <%= image_tag @book.user.get_image %><br>
+              <%= link_to user_path(params.id) do %>
+                <%= @book.user.name %>
+              <% end %>
+            </td>
+            <td>
+              <p class="text-dark"><%= book.title %></p>
+            </td>
+            <td>
+              <p class="text-dark"><%= book.body %></p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
