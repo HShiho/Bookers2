@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   
   resources :books,only: [:new,:show,:index,:create]
-  resources :users,only: [:show,:edit,:index]
+  resources :users,only: [:show,:edit,:index,:update]
   
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

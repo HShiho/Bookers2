@@ -22,15 +22,15 @@
             <td>
               <!--投稿ユーザー画像-->
               <%= image_tag @book.user.get_image %><br>
-              <%= link_to user_path(params.id) do %>
+              <%= link_to user_path(@book.id) do %>
                 <%= @book.user.name %>
               <% end %>
             </td>
             <td>
-              <p class="text-dark"><%= book.title %></p>
+              <%= @book.title %>
             </td>
             <td>
-              <p class="text-dark"><%= book.body %></p>
+              <%= @book.body %>
             </td>
           </tr>
         </tbody>
