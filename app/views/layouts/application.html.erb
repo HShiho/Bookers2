@@ -2,9 +2,9 @@
 <html>
   <head>
     <title>Bookers2</title>
-    
+
     <script src="https://kit.fontawesome.com/3d818d0ed0.js" crossorigin="anonymous"></script>
-    
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -23,34 +23,35 @@
             </button>
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto fa-ul">
-                  <%= link_to root_path,class: "nav-link text-light" do %>
-                    <li><i class="fa-solid fa-house-chimney fa-fw"></i>Home</li>
+                  <% if user_signed_in? %>
+                    <%= link_to about_path,class: "nav-link text-light" do %>
+                      <li><i class="fa-solid fa-house-chimney fa-fw"></i>Home</li>
+                    <% end %>
+                    <%= link_to users_path,class: "nav-link text-light" do %>
+                      <li><i class="fa-solid fa-users fa-fw"></i>Users</li>
+                    <% end %>
+                    <%= link_to books_path,class: "nav-link text-light" do %>rai
+                      <li><i class="fa-solid fa-book-open fa-fw"></i>Books</li>
+                    <% end %>
+                    <%= link_to destroy_user_session_path,method: :delete,class: "nav-link text-light" do %>
+                      <li><i class="fa-solid fa-right-from-bracket fa-fw"></i>Log out</li>
+                    <% end %>
+
+                  <% else %>
+                    <%= link_to root_path,class: "nav-link text-light" do %>
+                      <li><i class="fa-solid fa-house-chimney fa-fw"></i>Home</li>
+                    <% end %>
+                    <%= link_to about_path,class: "nav-link text-light" do %>
+                      <li><i class="fa-solid fa-link fa-fw"></i>About</li>
+                    <% end %>
+                    <%= link_to new_user_registration_path,class: "nav-link text-light" do %>
+                      <li><i class="fa-solid fa-user-plus fa-fw"></i>Sign up</li>
+                    <% end %>
+                    <%= link_to new_user_session_path,class: "nav-link text-light" do %>
+                      <li><i class="fa-solid fa-right-to-bracket fa-fw"></i>Log in</li>
+                    <% end %>
+
                   <% end %>
-                  
-                <% if user_signed_in? %>
-                  <%= link_to users_path,class: "nav-link text-light" do %>
-                    <li><i class="fa-solid fa-users"></i>Users</li>
-                  <% end %>
-                  <%= link_to books_path,class: "nav-link text-light" do %>
-                    <li><i class="fa-solid fa-book-open"></i>Books</li>
-                  <% end %>
-                  <%= link_to destroy_user_session_path,method: :delete,class: "nav-link text-light" do %>
-                    <li><i class="fa-solid fa-right-from-bracket"></i>Log out</li>
-                  <% end %>
-                  
-                <% else %>
-                  <%= link_to about_path,class: "nav-link text-light" do %>
-                    <li><i class="fa-solid fa-link fa-fw"></i>About</li>
-                  <% end %>
-                  <%= link_to new_user_registration_path,class: "nav-link text-light" do %>
-                    <li><i class="fa-solid fa-user-plus fa-fw"></i>Sign up</li>
-                  <% end %>
-                  <%= link_to new_user_session_path,class: "nav-link text-light" do %>
-                    <li><i class="fa-solid fa-right-to-bracket fa-fw"></i>Log in</li>
-                  <% end %>
-                  
-                <% end %>
-                
                 </ul>
               </div>
         </div>

@@ -24,11 +24,19 @@
                 <%= image_tag @user.get_image,class: "text-dark"; %>
               </td>
               <td>
-                <p class="text-dark"><%= book.title %></p>
+                <%= link_to book.title,class: "text-dark" %>
               </td>
               <td>
                 <p class="text-dark"><%= book.body %></p>
               </td>
+              <% if @book.user_id == current_user %>
+                <td>
+                  <%= link_to 'Edit',edit_book_path(book.id) %>
+                </td>
+                <td>
+                  <%= link_to 'Destroy',book_path(book.id),method: :delete,"data-confirm" => "Are you sure?" %>
+                  </td>
+              <% end %>
             </tr>
         </tbody>
           <% end %>

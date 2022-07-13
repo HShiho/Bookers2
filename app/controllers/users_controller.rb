@@ -10,16 +10,24 @@ class UsersController < ApplicationController
 
   def show
     @users = User.all
-    @user = current_user
-    @book_new = Book.new
     @books = Book.all
+    if @user = current_user
+      @book_new = Book.new
+    else
+      redirect_to root_path
+    end
+     @book = Book.find(params[:id])
   end
   
   def index
     @users = User.all
-    @user = current_user
-    @book_new = Book.new
-    @books = Book.all
+    if @user = current_user
+      @book_new = Book.new
+      @books = Book.all
+      @book = Book.find(params[:id])
+    else
+      redirect_to root_path
+    end
   end
   
   
