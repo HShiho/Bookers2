@@ -3,7 +3,7 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
-      <%= render partial: 'layouts/sidebar',locals: { user: @user,book_new: @book_new } %>
+      <%= render partial: 'layouts/sidebar',locals: { current_user: @current_user,book_new: @book_new } %>
     </div>
 
     <div class="col-md-8 offset-md-1">
@@ -20,7 +20,7 @@
           <% @users.each do |user| %>
             <tr>
               <td>
-                <%= image_tag user.get_image,class: "text-dark"; %>
+                <%= image_tag user.get_image(100,100),class: "text-dark"; %>
               </td>
               <td>
                 <p class="text-dark"><%= user.name %></p>

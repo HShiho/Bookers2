@@ -14,17 +14,17 @@ class UsersController < ApplicationController
 
   def show
     @users = User.all
-    @books = Book.where(user_id:current_user.id)
-    @user = current_user
+    @user = User.find(params[:id])
+    @books = @user.books
+    @current_user = current_user
     @book_new = Book.new
   end
 
   def index
     @users = User.all
-    @user = current_user
+    @current_user = current_user
     @book_new = Book.new
     @books = Book.all
-    redirect_to root_path
   end
 
 
