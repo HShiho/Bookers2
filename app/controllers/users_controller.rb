@@ -26,6 +26,8 @@ class UsersController < ApplicationController
     @book_new = Book.new
     @books = Book.all
   end
+  
+  
 
 
   private

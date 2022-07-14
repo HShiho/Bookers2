@@ -22,7 +22,7 @@
             <td>
               <!--投稿ユーザー画像-->
               <%= image_tag @book.user.get_image(100,100) %><br>
-              <%= link_to user_path(@book.id) do %>
+              <%= link_to user_path(@book.user_id) do %>
                 <%= @book.user.name %>
               <% end %>
             </td>
@@ -32,6 +32,17 @@
             <td>
               <%= @book.body %>
             </td>
+              <% if @book.user_id == current_user.id %>
+                <td>
+                  <%= link_to 'Edit',edit_book_path(@book.id),class: "btn btn-sm btn-success" %>
+                </td>
+                <td>
+                  <%= button_to 'Destroy',book_path(@book.id),method: :delete,data: {comfirm: "本当に消しますか?"},class: "btn btn-sm btn-danger" %>
+                  </td>
+              <% else %>
+                <td></td>
+                <td></td>
+              <% end %>
           </tr>
         </tbody>
       </table>
