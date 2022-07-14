@@ -58,6 +58,9 @@
       </nav>
     </header>
     <main>
+      <%= render partial: 'layouts/flash_notice' %>
+      <p class="notice"><% notice %></p>
+
       <%= yield %>
     </main>
 
