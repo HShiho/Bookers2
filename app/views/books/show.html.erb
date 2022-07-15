@@ -11,10 +11,10 @@
           <tr>
             <td>
               <!--投稿ユーザー画像-->
-              <%= image_tag @book.user.get_image(100,100) %><br>
-              <%= link_to user_path(@book.user_id) do %>
-                <%= @book.user.name %>
-              <% end %>
+              <%= image_tag @book.user.get_profile_image(100,100) %><br>
+                <%= link_to user_path(@book.user_id) do %>
+                  <%= @book.user.name %>
+                <% end %>
             </td>
             <td>
               <%= @book.title %>

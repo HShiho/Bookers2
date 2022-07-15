@@ -18,7 +18,7 @@
           <% @users.each do |user| %>
             <tr>
               <td>
-                <%= image_tag user.get_image(100,100),class: "text-dark"; %>
+                <%= image_tag user.get_profile_image(100,100),class: "text-dark"; %>
               </td>
               <td>
                 <p class="text-dark"><%= user.name %></p>
