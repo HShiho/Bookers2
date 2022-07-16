@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/registrations#destroy'
   end
-
+  
+  post 'books/:id' => 'books#create'
   resources :books
   post 'users/:id/edit' => 'users#update'
   resources :users

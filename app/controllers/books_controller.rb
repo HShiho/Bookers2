@@ -8,7 +8,6 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
-    @error = @book
     if @book.save
         redirect_to book_path(@book), notice: 'You have created book successfully.'
     else
@@ -21,7 +20,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    @error = @book
+    @user = User.find(params[:id])
     @current_user = current_user
   end
 
@@ -58,7 +57,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title,:body)
+    params.permit(:title,:body)
   end
 
 end

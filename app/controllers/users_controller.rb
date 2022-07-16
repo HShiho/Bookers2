@@ -27,6 +27,7 @@ class UsersController < ApplicationController
     @current_user = current_user
     @book_new = Book.new
     @books = Book.all
+    @error = @book_new
   end
   
   

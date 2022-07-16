@@ -1,6 +1,6 @@
 <% if @error.errors.any? %>
   <div class="error-explanation">
-    <h2><%= @error.errors.count %> errors prohibited this book from being saved:</h2>
+    <h3><%= @error.errors.count %> errors prohibited this book from being saved:</h3>
       <ul>
         <% @error.errors.full_messages.each do |message| %>
           <li class="error-messages"><%= message %></li>

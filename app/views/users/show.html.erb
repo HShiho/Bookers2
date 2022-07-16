@@ -1,7 +1,23 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
-      <%= render partial: 'layouts/sidebar',locals: { current_user: @current_user,book_new: @book_new } %>
+      <h2>User info</h2>
+        <%= image_tag @user.get_profile_image(100, 100) %>
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>name</th>
+              <th><%= @user.name %></th>
+            </tr>
+            <tr>
+              <th>introduction</th>
+              <th><%= @user.introduction %></th>
+            </tr>
+          </tbody>
+        </table>
+        
+      <%= render partial: 'layouts/sidebar/sidebar_mypage',locals: { current_user: @current_user } %>
+      <%= render partial: 'layouts/sidebar/sidebar_new_book',locals: { book_new: @book_new } %>
     </div>
 
     <div class="col-md-8 offset-md-1">
