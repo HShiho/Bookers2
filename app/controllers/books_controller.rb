@@ -23,6 +23,7 @@ class BooksController < ApplicationController
   def edit
     @book = Book.find(params[:id])
     @error = @book
+    @current_user = current_user
   end
 
   def update
