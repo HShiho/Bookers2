@@ -3,6 +3,7 @@
   <%= render partial: 'layouts/error_message' %>
   
   <div class="row">
+    <!--サイドバー-->
     <div class="col-md-3">
       <%= render partial: 'layouts/sidebar/sidebar_user_info',locals: { current_user: @current_user } %>
       <%= render partial: 'layouts/sidebar/sidebar_mypage',locals: { current_user: @current_user } %>

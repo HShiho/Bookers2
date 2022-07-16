@@ -25,7 +25,7 @@
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto fa-ul">
                   <% if user_signed_in? %>
-                    <%= link_to about_path,class: "nav-link text-light" do %>
+                    <%= link_to user_path(@current_user),class: "nav-link text-light" do %>
                       <li><i class="fa-solid fa-house-chimney fa-fw"></i>Home</li>
                     <% end %>
                     <%= link_to users_path,class: "nav-link text-light" do %>
