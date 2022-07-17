@@ -1,6 +1,5 @@
 class BooksController < ApplicationController
-  protect_from_forgery :except => [:destroy]
-  before_action :correct_user, only: [ :edit, :update]
+  before_action :correct_user, only: [ :edit, :update ]
 
   def create
     @book = Book.new(book_params)
@@ -55,7 +54,7 @@ class BooksController < ApplicationController
       @book = Book.find(params[:id])
       @user = User.find(@book.user_id)
       @current_user = current_user
-      render :show, notice: 'You filed to delete the book.'
+      redirect_to book_path, notice: 'You filed to delete the book.'
     end
   end
 
@@ -66,7 +65,7 @@ class BooksController < ApplicationController
     params.require(:book).permit(:title,:body)
   end
   
-  def correcut_user
+  def correct_user
     @book = Book.find(params[:id])
     @user = @book.user
     redirect_to(books_path) unless @user == current_user
