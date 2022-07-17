@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
   
   post 'books/:id' => 'books#create'
+  post 'books' => 'books#create'
   resources :books
   post 'users/:id/edit' => 'users#update'
   resources :users

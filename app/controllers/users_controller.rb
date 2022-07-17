@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :correct_user, only: [ :edit, :update]
+  
   def edit
     @user = User.find(params[:id])
     @error = @user
@@ -7,6 +9,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    @current_user = current_user
     @error = @user
     if @user.update(user_params)
       redirect_to user_path(params[:id]), notice: 'You have updated user successfully.'
@@ -38,6 +41,11 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name,:introduction,:profile_image)
+  end
+  
+  def correcut_user
+    @user = @book.find(params[:id])
+    redirect_to(users_path) unless @user == current_user
   end
 
 end
