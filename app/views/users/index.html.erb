@@ -1,12 +1,12 @@
 <div class="container px-5 px-sm-0">
-  
+
   <%= render partial: 'layouts/error_message' %>
-  
+
   <div class="row">
     <!--サイドバー-->
     <div class="col-md-3">
       <%= render partial: 'layouts/sidebar/sidebar_user_info',locals: { current_user: @current_user } %>
-      <%= render partial: 'layouts/sidebar/sidebar_mypage',locals: { current_user: @current_user } %>
+      <%= render partial: 'layouts/sidebar/sidebar_mypage',locals: { user: @user } %>
       <%= render partial: 'layouts/sidebar/sidebar_new_book',locals: { book_new: @book_new } %>
     </div>
 
@@ -30,7 +30,7 @@
                 <p class="text-dark"><%= user.name %></p>
               </td>
               <td>
-                <p class="text-dark"><%= link_to "show",user_path(user.id) %></p>
+                <%= link_to "show",user_path(user.id) %>
               </td>
             </tr>
         </tbody>

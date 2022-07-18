@@ -16,8 +16,8 @@
             </tr>
           </tbody>
         </table>
-        
-      <%= render partial: 'layouts/sidebar/sidebar_mypage',locals: { current_user: @current_user } %>
+
+      <%= render partial: 'layouts/sidebar/sidebar_mypage',locals: { user: @user } %>
       <%= render partial: 'layouts/sidebar/sidebar_new_book',locals: { book_new: @book_new } %>
     </div>
 
@@ -44,7 +44,7 @@
               <td>
                <%= book.body %>
               </td>
-              
+
             </tr>
         </tbody>
           <% end %>

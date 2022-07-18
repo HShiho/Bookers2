@@ -2,7 +2,7 @@
   <div class="row">
     <!--サイドバー-->
     <div class="col-md-3">
-      
+
       <h2>User info</h2>
         <%= image_tag @user.get_profile_image(100, 100) %>
         <table class="table">
@@ -17,8 +17,18 @@
             </tr>
           </tbody>
         </table>
-        
-      <%= render partial: 'layouts/sidebar/sidebar_mypage',locals: { current_user: @current_user } %>
+
+      <% if @book.user_id == current_user.id %>
+        <%= render partial: 'layouts/sidebar/sidebar_mypage',locals: { user: @user } %>
+      <% else %>
+        <div class="row">
+          <%= link_to user_path(@current_user),class: "btn btn-outline-secondary btn-block " do %>
+            <i class="fas fa-user-cog"></i>
+          <% end %>
+        <br>
+        </div>
+      <% end %>
+
       <%= render partial: 'layouts/sidebar/sidebar_new_book',locals: { book_new: @book_new } %>
     </div>
 
