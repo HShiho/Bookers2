@@ -27,9 +27,8 @@
           <% @books.each do |book| %>
             <tr>
               <td>
-                <!--投稿ユーザー画像-->
-                <%= link_to user_path(book.user) do %>
-                  <%= image_tag book.user.get_profile_image(100,100) %>
+                <%= link_to user_path(book.user_id) do %>
+                  <%= image_tag book.user.get_profile_image(80,80) %>
                 <% end %>
               </td>
               <td>
@@ -41,8 +40,8 @@
             </tr>
         </tbody>
           <% end %>
-        </table>
-      </div>
+      </table>
+    </div>
 
   </div>
 </div>
