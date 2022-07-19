@@ -8,7 +8,7 @@
     <!--サイドバー-->
     <div class="col-md-3">
       <%= render partial: 'layouts/sidebar/sidebar_user_info',locals: { current_user: @current_user } %>
-      <%= render partial: 'layouts/sidebar/sidebar_mypage',locals: { current_user: @user } %>
+      <%= render partial: 'layouts/sidebar/sidebar_mypage',locals: { user: @user } %>
       <%= render partial: 'layouts/sidebar/sidebar_new_book',locals: { book_new: @book_new } %>
     </div>
 
@@ -28,7 +28,7 @@
             <tr>
               <td>
                 <!--投稿ユーザー画像-->
-                <%= link_to user_path(book.user_id) do %>
+                <%= link_to user_path(book.user) do %>
                   <%= image_tag book.user.get_profile_image(100,100) %>
                 <% end %>
               </td>
